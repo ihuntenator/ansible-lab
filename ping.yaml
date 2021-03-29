@@ -1,0 +1,14 @@
+---
+- name: check localhost pongs
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: ping localhost
+      ping:
+      register: result
+
+    - debug:
+        var: result
+
+    - debug:
+        var: result.ping
