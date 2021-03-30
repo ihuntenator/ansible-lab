@@ -1,0 +1,35 @@
+---
+- hosts: docker
+  tasks:
+    - name: Install prereq packages
+      yum:
+        name:
+          - yum-utils
+          - device-mapper-persistent-data
+          - lvm2
+        state: latest
+        update-cache: yes
+        register: result
+
+    - name: Add repo docker-ce-repo
+      yum_repository:
+        name: docker-ce
+        description: "Repo for docker hosts"
+        baseurl: "https://download.docker.com/linux/centos/docker-ce.repo"
+        register: result
+
+    - name: Install docker pakages
+      yum:
+        name: 
+          - docker-ce 
+          - docker-ce-cli
+          - containerd.io 
+        state: latest
+        update-cache: yes
+        register: result
+
+    - name: Make sure Docker is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
