@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     node.vm.box = "centos/7"
     node.vm.hostname = 'node'
     node.vm.synced_folder ".", "/vagrant", type: "virtualbox"
-    node.vm.network :private_network, ip: "192.168.56.101"
+    node.vm.network :private_network, ip: "192.168.56.102"
     node.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 512]
