@@ -18,6 +18,6 @@ echo "vagrant" > ~/password.txt
 ssh-keygen -q -t rsa -b 2048 -N "" -C "ansible access target" -f ~/.ssh/id_rsa
 sshpass -f ~/password.txt ssh-copy-id -i ~/.ssh/vagrant vagrant@node
 rm -rf ~/password.txt
-cp /vagrant/ansible-known_hosts ~/.ssh/known_hosts
+#cp /vagrant/ansible-known_hosts ~/.ssh/known_hosts
 
 #pip3 install awxkit
