@@ -39,3 +39,8 @@ Thumbs.db
 # Vagrant #
 ##########
 .vagrant
+
+
+# Git #
+#######
+.gitGraph/
